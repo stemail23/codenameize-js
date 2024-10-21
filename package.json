@@ -2,6 +2,12 @@
 	"name": "codenamize-ts",
 	"version": "0.0.1",
 	"description": "Generate consistent easier-to-remember codenames from strings, numbers, or other seed inputs.",
+	"scripts": {
+		"ci": "npm run lint && npm run typecheck",
+		"build": "tsc --project tsconfig.build.json",
+		"lint": "biome check --write src/*",
+		"typecheck": "tsc --noEmit"
+	},
 	"keywords": [
 		"alias",
 		"aliases",
@@ -26,6 +32,9 @@
 		"big-integer": "^1.6.36"
 	},
 	"devDependencies": {
-		"@types/node": "^22.7.7"
+		"@biomejs/biome": "^1.9.4",
+		"@types/node": "^22.7.7",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.4.5"
 	}
 }

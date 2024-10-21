@@ -1,0 +1,28 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
+    "organizeImports": {
+        "enabled": true
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "complexity": {
+                "noStaticOnlyClass": {
+                    "level": "off"
+                },
+                "noForEach": {
+                    "level": "off"
+                }
+            },
+            "style": {
+                "noParameterAssign": {
+                    "level": "off"
+                },
+                "useNodejsImportProtocol": {
+                    "level": "off"
+                }
+            }
+        }
+    }
+}
