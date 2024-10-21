@@ -1,7 +1,9 @@
 {
 	"name": "codenamize-ts",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Generate consistent easier-to-remember codenames from strings, numbers, or other seed inputs.",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"scripts": {
 		"ci": "npm run lint && npm run typecheck",
 		"build": "tsc --project tsconfig.build.json",
@@ -20,7 +22,6 @@
 		"generator",
 		"secret"
 	],
-	"main": "index.js",
 	"homepage": "https://github.com/tadesf/codenamize-ts",
 	"repository": {
 		"type": "git",
