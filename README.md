@@ -1,97 +1,91 @@
-# Codenamize
+# Codenamize (Typescript)
 
 **Generate consistent easier-to-remember codenames from strings, numbers, or other seed inputs.**
 
-# Overview
+## Overview
 
-**Codenamize** is a JavaScript library for generating deterministic, alternative codenames for a given seed input. Using codenames in place of awkward identifiers, such as UUIDs, hashes, network addresses etc, helps human users to recall and quickly identify strings.
+**Codenamize** is a TypeScript library for generating deterministic, alternative codenames for a given seed input. Using codenames in place of awkward identifiers, such as UUIDs, hashes, network addresses etc, helps human users to recall and quickly identify strings.
 
-This is a JavaScript port of the original Python [codenamize](https://github.com/jjmontesl/codenamize) library, with extra extended capability!
+This is a Typescript port of the JavaScript adaption [codenamize-js](https://github.com/stemail23/codenamize-js) library of the original Python [codenamize](https://github.com/jjmontesl/codenamize) library, with extra extended capability!
 
-# Installation
+## Installation
 
-Install from the [npm repository](https://www.npmjs.com/package/@codenamize/codenamize).
+Install from the [npm repository](https://www.npmjs.com/package/tadesf/codenamize-ts).
 
-With [yarn](https://yarnpkg.com)…
-
-```shell
-$ yarn add @codenamize/codenamize
+```bash
+npm install codenamize-ts
+yarn add codenamize-ts
+bun install codenamize-ts
 ```
 
-… or with [npm](https://www.npmjs.com).
+## Usage
 
-```shell
-$ npm install @codenamize/codenamize
+### Importing
+
+```typescript
+import codenamize from 'codenamize-ts';
 ```
 
-# Usage
+### Generating codenames
 
-## Importing
-
-```javascript
-const codenamize = require('@codenamize/codenamize');
-```
-
-## Generating codenames
-
-### seed value
+#### seed value
 
 Output is deterministically based on the input seed. Numbers are converted to the equivalent string value.
 
-The codenamize argument can be either a simple string or integer argument…
+The codenamize argument can be either a simple string or number argument…
 
 ```javascript
 codenamize(1);
-// 'familiar-grand'
+// 'poor-foundation'
 
 codenamize('1');
-// 'familiar-grand'
+// 'poor-foundation'
 
 codenamize('11:22:33:44:55:66');
-// 'craven-delivery'
+// 'frantic-shape'
 ```
 
 … or an `options` object argument.
 
-```javascript
+```typescript
 codenamize({ seed: '1' });
-// 'familiar-grand'
+// 'poor-foundation'
 
 codenamize({ seed: '11:22:33:44:55:66' });
-// 'craven-delivery'
+// 'frantic-shape'
 ```
 
-### classic mode
+#### classic mode
 
 Classic mode uses `options.adjectiveCount` to determine the composition of the codename output, which will be made up of the specified number of adjectives, followed by a noun. Note that prepending more adjectives retains the existing codename words.
 
-```javascript
+```typescript
 codenamize({ seed: '11:22:33:44:55:66', adjectiveCount: 2 });
-// 'separate-craven-delivery'
+// 'ruddy-frantic-shape'
 
 codenamize({ seed: '11:22:33:44:55:66', adjectiveCount: 3 });
-// 'unsuitable-separate-craven-delivery'
+// 'vague-ruddy-frantic-shape'
 ```
 
-### particles mode
+#### particles mode
 
 Instead of `options.adjectiveCount`, the `options.particles` argument can alternatively be used to specify a more precise composition for the produced codename. The argument is an array of word categories which will be appended together to produce the output codename.
 
-```javascript
-> codenamize({ seed: '11:22:33:44:55:66', particles: ['adjective', 'noun'] });
-'craven-delivery'
+```typescript
+codenamize({ seed: '11:22:33:44:55:66', particles: ['adjective', 'noun'] });
+// 'frantic-shape'
 
 codenamize({ seed: '11:22:33:44:55:66', particles: ['noun', 'adjective', 'noun'] });
-// 'satisfaction-craven-delivery'
+// 'worry-frantic-shape'
 ```
 
-### other options
+#### other options
 
 These options can be used in either classic, or particles mode.
 
 `options.maxItemChars` specifies the maximum length of each codename word.
 
-```javascript
+```typescript
 codenamize({ seed: '11:22:33:44:55:66', adjectiveCount: 2, maxItemChars: 3 });
 // 'hot-shy-age'
 
@@ -101,19 +95,19 @@ codenamize({ seed: '11:22:33:44:55:66', adjectiveCount: 2, maxItemChars: 4 });
 
 `options.capitalize` determines whether each word in the codename will be capitalized.
 
-```javascript
+```typescript
 codenamize({ seed: '11:22:33:44:55:66', capitalize: true });
-// 'Craven-Delivery'
+// 'Frantic-Shape'
 ```
 
 `options.separator` specifies the character(s) used to combine the parts of the codename.
 
-```javascript
+```typescript
 codenamize({ seed: '11:22:33:44:55:66', separator: ':' });
-// 'craven:delivery'
+// 'frantic:shape'
 ```
 
-## Extending the codename vocabulary
+### Extending the codename vocabulary
 
 Straight out of the box, **Codenamize** emulates the behaviour of the original [Python library](https://github.com/jjmontesl/codenamize), and contains the same noun and adjective lists. Generated codenames with either library should be identical for a given  input.
 
@@ -128,7 +122,8 @@ codenamize({ seed: '11:22:33:44:55:66', particles: ['color', 'animal'] });
 
 Note that in a real situation, a much more extensive list of words would likely be provide for each catagory of word.
 
-# Other versions
+## Other versions
 
+* [Codenamize-js](https://github.com/stemail23/codenamize-js) – JavaScript (the base for this library)
 * [Codenamize](https://github.com/jjmontesl/codenamize) - Python (the original!)
 * [Concode](https://github.com/DannyBen/concode) - Ruby
