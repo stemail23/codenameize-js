@@ -1,6 +1,6 @@
 {
 	"name": "codenamize-ts",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Generate consistent easier-to-remember codenames from strings, numbers, or other seed inputs.",
 	"scripts": {
 		"ci": "npm run lint && npm run typecheck",
@@ -24,7 +24,7 @@
 	"homepage": "https://github.com/tadesf/codenamize-ts",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tadesf/codenamize-ts"
+		"url": "https://github.com/TadeSF/codenamize-ts"
 	},
 	"license": "MIT",
 	"private": false,
