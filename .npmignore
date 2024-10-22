@@ -1,0 +1,29 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore coverage reports
+coverage/
+
+# Ignore TypeScript source files
+src/
+
+# Ignore test files
+test/
+*.spec.ts
+__mocks__/
+
+# Ignore TypeScript configuration files
+tsconfig.json
+tsconfig.build.json
+
+# Ignore Jest configuration file
+jest.config.js
+
+# Ignore package lock file
+package-lock.json
+
+# Ignore biome configuration
+biome.json
+
+# Ignore README if you don't want it in the package
+README.md

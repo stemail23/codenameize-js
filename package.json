@@ -1,14 +1,22 @@
 {
 	"name": "codenamize-ts",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Generate consistent easier-to-remember codenames from strings, numbers, or other seed inputs.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
-		"ci": "npm run lint && npm run typecheck",
+		"ci": "npm run lint && npm run typecheck && npm run test",
 		"build": "tsc --project tsconfig.build.json",
 		"lint": "biome check --write src/*",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"test": "jest --coverage"
+	},
+	"exports": {
+		"import": "./lib/index.js",
+		"require": "./lib/index.js",
+		"node": "./lib/index.js",
+		"default": "./lib/index.js",
+		"types": "./lib/index.d.ts"
 	},
 	"keywords": [
 		"alias",
@@ -34,7 +42,10 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@types/node": "^22.7.7",
+		"@types/jest": "^29.5.13",
+		"@types/node": "^22.7.8",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.1.4",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.4.5"
 	}

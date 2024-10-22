@@ -62,7 +62,7 @@ function parseParticles(particles: Record<string, string[]>) {
 	return allParticles;
 }
 
-function parseOptions(options: Options | string | number): Options {
+export function parseOptions(options: Options | string | number): Options {
 	const response: Options = {};
 
 	if (typeof options === "string" || typeof options === "number") {
@@ -119,7 +119,7 @@ function parseOptions(options: Options | string | number): Options {
 	return response;
 }
 
-function getParticles(options: Options) {
+export function getParticles(options: Options) {
 	const useOptions = parseOptions(options);
 	const response: string[][] = [];
 	useOptions.particles?.reverse();
@@ -129,9 +129,9 @@ function getParticles(options: Options) {
 		} else {
 			response.push(
 				useOptions.maxItemChars
-					? allParticles[particle].items.slice(
-							0,
-							allParticles[particle].metadata?.lengths[useOptions.maxItemChars],
+					? allParticles[particle].items.filter(
+							// biome-ignore lint/style/noNonNullAssertion: This is a valid use case since we already excluded the case where maxItemChars is undefined
+							(item) => item.length <= useOptions.maxItemChars!,
 						)
 					: allParticles[particle].items,
 			);
@@ -140,7 +140,7 @@ function getParticles(options: Options) {
 	return response;
 }
 
-function getTotalWords(particles: string[][]) {
+export function getTotalWords(particles: string[][]) {
 	let totalWords = bigInt(1);
 	particles.forEach((particle) => {
 		totalWords = totalWords.multiply(bigInt(particle.length));
@@ -148,7 +148,7 @@ function getTotalWords(particles: string[][]) {
 	return totalWords;
 }
 
-function getHash(options: Options) {
+export function getHash(options: Options) {
 	const useOptions = parseOptions(options);
 	if (!useOptions.hashAlgorithm) {
 		throw new Error("Missing hash algorithm");
@@ -176,7 +176,7 @@ function codenameParticles(options: Options) {
 	return codenameParticles;
 }
 
-function codenamize(options: Options | string | number): string {
+export function codenamize(options: Options | string | number): string {
 	const useOptions = parseOptions(options);
 	let particles = codenameParticles(useOptions);
 
@@ -191,5 +191,3 @@ function codenamize(options: Options | string | number): string {
 
 codenamize.use = (particles: Record<string, string[]>) =>
 	parseParticles(particles);
-
-export default codenamize;
