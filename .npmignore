@@ -27,3 +27,6 @@ biome.json
 
 # Ignore README if you don't want it in the package
 README.md
+
+# ignore Github Actions
+.github/
