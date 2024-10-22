@@ -35,7 +35,8 @@
 	"license": "MIT",
 	"private": false,
 	"dependencies": {
-		"big-integer": "^1.6.36"
+		"big-integer": "^1.6.36",
+		"jssha": "^3.3.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
