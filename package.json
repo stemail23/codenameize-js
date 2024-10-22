@@ -1,6 +1,6 @@
 {
 	"name": "codenamize-ts",
-	"version": "0.0.4",
+	"version": "0.0.6",
 	"description": "Generate consistent easier-to-remember codenames from strings, numbers, or other seed inputs.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

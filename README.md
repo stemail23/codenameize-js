@@ -23,7 +23,7 @@ bun install codenamize-ts
 ### Importing
 
 ```typescript
-import codenamize from 'codenamize-ts';
+import { codenamize } from 'codenamize-ts';
 ```
 
 ### Generating codenames
